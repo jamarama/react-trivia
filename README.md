@@ -3,9 +3,9 @@
 Welcome to the **Astrology Trivia App**! This is an interactive quiz game built with React that tests users' knowledge on astrology, including zodiac signs, planets, houses, and elements.
 
 ## Features
-- 🏆 Answer astrology-related trivia questions and track your score
-- 🔮 Categories include Zodiac Signs, Planetary Rulerships, Characteristics, and more
-- 🎨 Clean and responsive design with a celestial theme
+-  Answer astrology-related trivia questions and track your score
+-  Categories include Zodiac Signs, Planetary Rulerships, Characteristics, and more
+-  Clean and responsive design with a celestial theme
 
 ---
 
@@ -84,5 +84,5 @@ This project is licensed under the **MIT License**.
 ### 📧 Contact
 For any questions or suggestions, reach out via [your email or GitHub](https://github.com/yourusername).
 
-May the stars guide your way! ✨🚀
+
 
