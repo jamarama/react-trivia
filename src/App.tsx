@@ -3,6 +3,7 @@ import Questions from "./Questions";
 import { useState } from "react";
 
 const categories = [
+  
   "Planets",
   "Signs",
   "Personality",
