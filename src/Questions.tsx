@@ -22,3 +22,4 @@ function Questions({ question, options, answer, onAnswer }: QuestionProps) {
 }
 
 export default Questions;
+
