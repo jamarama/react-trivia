@@ -2,10 +2,25 @@ import "./App.css";
 import Questions from "./Questions";
 import { useState } from "react";
 
+const categories = [
+  "Planets",
+  "Signs",
+  "Personality",
+  "Houses",
+  "Aspects",
+  "Transits",
+  "Modalities",
+];
+
 const triviaData = [
   {
     question: "What are the 12 zodiac signs based on?",
-    options: ["The month you were born.", "The location you were born.", "The position of the Sun at birth.", "Your personality."],
+    options: [
+      "The month you were born.",
+      "The location you were born.",
+      "The position of the Sun at birth.",
+      "Your personality.",
+    ],
     answer: "The position of the Sun at birth.",
     category: "Signs",
   },
@@ -24,7 +39,7 @@ const triviaData = [
   {
     question:
       "Which zodiac sign is known for being the most emotional and intuitive?",
-    options: ["Pisces", "Cancer", "Leo", "Capricorn"], 
+    options: ["Pisces", "Cancer", "Leo", "Capricorn"],
     answer: "Cancer",
     category: "Personality",
   },
@@ -54,14 +69,24 @@ const triviaData = [
   },
   {
     question: "In astrology, what does a person’s Moon sign represent?",
-    options: ["Their appearance", "Their emotions and inner self.", "Their surroundings", "Their profession"],
+    options: [
+      "Their appearance",
+      "Their emotions and inner self.",
+      "Their surroundings",
+      "Their profession",
+    ],
     answer: "Their emotions and inner self.",
     category: "Personality",
   },
   {
     question:
       "Which part of a birth chart represents a person’s outward personality and first impressions?",
-    options: ["The Moon", "The Midheaven", "The Sun", "The Ascendant (Rising Sign)"],
+    options: [
+      "The Moon",
+      "The Midheaven",
+      "The Sun",
+      "The Ascendant (Rising Sign)",
+    ],
     answer: "The Ascendant (Rising Sign)",
     category: "Personality",
   },
@@ -86,7 +111,12 @@ const triviaData = [
   {
     question:
       "Which two planets are known as the 'malefics' in traditional astrology?",
-    options: ["Mars and Saturn", "Venus and Mercury", "Sun and Moon", "Pluto and Uranus"],
+    options: [
+      "Mars and Saturn",
+      "Venus and Mercury",
+      "Sun and Moon",
+      "Pluto and Uranus",
+    ],
     answer: "Mars and Saturn",
     category: "Planets",
   },
@@ -116,7 +146,12 @@ const triviaData = [
   },
   {
     question: "Which signs are considered Fixed signs?",
-    options: ["Aries, Leo, Sagittarius, Pisces", "Gemini, Libra, Aquarius, Scorpio", "Taurus, Leo, Scorpio, Aquarius", "Virgo, Capricorn, Taurus, Scorpio"],
+    options: [
+      "Aries, Leo, Sagittarius, Pisces",
+      "Gemini, Libra, Aquarius, Scorpio",
+      "Taurus, Leo, Scorpio, Aquarius",
+      "Virgo, Capricorn, Taurus, Scorpio",
+    ],
     answer: "Taurus, Leo, Scorpio, Aquarius",
     category: "Signs",
   },
@@ -129,7 +164,7 @@ const triviaData = [
   {
     question:
       "What is the only zodiac sign represented by an inanimate object?",
-    options: ["Taurus", "Pisces", "Libra", "Sagitarius"], 
+    options: ["Taurus", "Pisces", "Libra", "Sagitarius"],
     answer: "Libra",
     category: "Signs",
   },
@@ -167,22 +202,25 @@ function App() {
 
   const currentQuestion = triviaData[currentIndex];
 
+  const handleCategory = (category: string): void => {
+    console.log("Click Category", category);
+  };
+
   const handleScore = (isCorrect: boolean) => {
     if (isCorrect) {
       setScore(score + 1);
     }
 
-    // Delay for feedback or just go to next
     setTimeout(() => {
       if (currentIndex < triviaData.length - 1) {
         setCurrentIndex(currentIndex + 1);
       } else {
         setIsFinished(true);
       }
-    }, 300); // Short delay for click effect
+    }, 200);
   };
 
-  const goRestart = () => {
+  const handleRestart = () => {
     setCurrentIndex(0);
     setScore(0);
     setIsFinished(false);
@@ -193,6 +231,14 @@ function App() {
       <div className="main-nav">
         <h1 className="text-center">Astrological Trivia</h1>
         <p className="text-center">How well do you know the signs!</p>
+
+        <div className="category-nav">
+          {categories.map((category: string, index: number) => (
+            <button key={index} onClick={() => handleCategory(category)}>
+              {category}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className="content">
@@ -208,17 +254,24 @@ function App() {
           ) : (
             <div className="card">
               <h2>Game Over!</h2>
-              <p>Your Score: {score} / {triviaData.length}</p>
-              <button onClick={goRestart}>Play Again</button>
+              <p>
+                Your Score: {score} / {triviaData.length}
+              </p>
+              <button onClick={handleRestart}>Play Again</button>
             </div>
           )}
         </div>
 
-        {/* <div className="footer">
-          {!isFinished && (
-            <p>Score: {score}</p>
-          )}
-        </div> */}
+        <div className="footer">
+          <div className="footer-content">
+            <p className="score">Score: {score}</p>
+            {!isFinished && (
+              <button onClick={handleRestart} className="restart-button">
+                Restart
+              </button>
+            )}
+          </div>
+        </div>
       </div>
     </>
   );
