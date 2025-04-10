@@ -1,15 +1,137 @@
 
-import "./App.css";
-
-function App() {
-  return (
-    <><div className='main-nav'>
-      <h1 className="text-center">Astrological Trivia</h1>
-      <p className="text-center">How well do you know the star signs!</p>
-    </div><div className='content'>
-        <p>Cards go Here</p>
-      </div></>
-  );
+html, body{
+  background-image: url('/galaxy.jpg'); /* Image is in public folder */
+  background-size: cover; /* Covers the full screen */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Keeps the background fixed while scrolling */    
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Quicksand','Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  
 }
 
-export default App;
+.main-nav {
+  height: 100px;
+  top: 0;
+  background-color: #9441e1;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  z-index: 1000;
+
+}
+
+.footer {
+  color: white;
+  background-color: rgba(176, 127, 223, 0.568); /* Little translucent to show against galaxy bg */
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.score {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+
+.footer button {
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 20px;
+  background-color: white;
+  color: rgb(166, 77, 240);
+  border: none;
+  cursor: pointer;
+}
+
+.main-nav h1 {
+  margin: 10px 0 0;
+  font-size: 2em; /* Large Title */
+
+}
+
+.main-nav p {
+  margin: 0 0 10px;
+  font-style: italic;
+
+}
+
+/* Category navigation styles */
+.category-nav { 
+  height: 60px;
+  top: 100; 
+  background-color: #6c02cf; 
+  padding: 15px 0; 
+}
+
+
+.badge {
+  display: inline-block;
+  padding: 5px 15px;
+  margin: 0 5px;
+  border-radius: 100px;
+  background-color: #b088f0;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.badge-hover {
+  background-color: #9441e1;
+}
+
+
+.content {
+  padding-top: 20px;
+
+}
+
+.cards-container {
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh; /* Centers vertically, leaving space for nav */
+  padding: 20px;
+
+}
+
+.card, .card-back {
+
+  box-shadow:0 4px 8px rgba(0,0,0,0.6);
+  color: #f5f3f7;
+  border-radius: 10px;
+  padding: 15px;
+  height: 200px;
+  width: 400px;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+}
+
+.cards-container .card {
+  background-color: rgba(148, 65, 225, 0.9);
+}
+.card-back {
+  background-color: #cdaeeb;
+}
+
