@@ -75,6 +75,18 @@ html, body{
     padding: 15px 0; 
 }
 
+.options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .nav-options {
+    display: flex;
+    justify-content: space-between;
+  }
+
 
 .badge {
     display: inline-block;

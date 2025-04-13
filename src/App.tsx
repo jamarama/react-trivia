@@ -220,6 +220,20 @@ function App() {
     }, 200);
   };
 
+  const handleBack = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+    }
+  };
+
+  const handleForward = () => {
+    if (currentIndex < triviaData.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+    } else {
+      setIsFinished(true);
+    }
+  };
+
   const handleRestart = () => {
     setCurrentIndex(0);
     setScore(0);
@@ -250,6 +264,8 @@ function App() {
               options={currentQuestion.options}
               category={currentQuestion.category}
               onAnswer={handleScore}
+              handleBack={handleBack}
+              handleForward={handleForward}
             />
           ) : (
             <div className="card">
