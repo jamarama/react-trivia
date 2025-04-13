@@ -81,7 +81,7 @@ This project is licensed under the **MIT License**.
 
 ---
 
-### 📧 Contact
+### Contact
 For any questions or suggestions, reach out via [your email or GitHub](https://github.com/yourusername).
 
 
